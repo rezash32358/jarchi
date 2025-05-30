@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: jarchi
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn jarchi.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: jarchi.settings
+      - key: PYTHON_VERSION
+        value: 3.9
+    staticPublishPath: static/
